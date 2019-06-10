@@ -190,7 +190,8 @@ public class SheetViewController: UIViewController {
     private func setUpContainerView() {
         self.view.addSubview(self.containerView) { (subview) in
             subview.edges(.left, .right).pinToSuperview()
-            self.containerBottomConstraint = subview.bottom.pinToSuperview()
+//             self.containerBottomConstraint = subview.bottom.pinToSuperview()
+            self.containerBottomConstraint = subview.bottom.pinToSuperview(inset: self.safeAreaInsets.bottom - 100, relation: .lessThanOrEqual)
             subview.top.pinToSuperview(inset: self.safeAreaInsets.top + 20, relation: .greaterThanOrEqual)
             self.containerHeightConstraint = subview.height.set(self.height(for: self.containerSize))
             self.containerHeightConstraint.priority = UILayoutPriority(900)
